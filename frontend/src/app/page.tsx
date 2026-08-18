@@ -120,7 +120,7 @@ function AppHeader({ wallet }: { wallet: ReturnType<typeof useWallet> }) {
 //  TABS & VIEWS
 // ─────────────────────────────────────────────
 
-// 🏛 Tab 1: DIALECTICS LIST & DETAIL
+// Tab 1: DIALECTICS LIST & DETAIL
 function DialecticsView({
   arenas, selected, onSelect, onPropose, onClash, walletAddr, loading,
 }: {
@@ -275,7 +275,7 @@ function DialecticsView({
               ) : walletAddr && selected.proponent.toLowerCase() === walletAddr.toLowerCase() ? (
                 <div style={{ background: 'var(--sage-glow)', border: '1px solid var(--sage-dim)', padding: '0.75rem 1rem', borderRadius: 'var(--radius-md)', textAlign: 'center' }}>
                   <p style={{ fontSize: '0.78rem', color: 'var(--sage)', fontWeight: 600 }}>
-                    🛡 You are currently defending this hypothesis as the active proponent.
+                    Defending: You are currently defending this hypothesis as the active proponent.
                   </p>
                 </div>
               ) : (
@@ -349,7 +349,7 @@ function DialecticsView({
   );
 }
 
-// 📜 Tab 2: DUEL LEDGER
+// Tab 2: DUEL LEDGER
 function LedgerView({ ledger, loading }: { ledger: LedgerEvent[]; loading: boolean }) {
   return (
     <div className="panel" style={{ padding: '1.75rem' }}>
@@ -421,7 +421,7 @@ function LedgerView({ ledger, loading }: { ledger: LedgerEvent[]; loading: boole
   );
 }
 
-// 📊 Tab 3: INSIGHTS & CHAMPION
+// Tab 3: INSIGHTS & CHAMPION
 function InsightsView({ stats }: { stats: Stats | null }) {
   if (!stats) {
     return (
@@ -457,7 +457,9 @@ function InsightsView({ stats }: { stats: Stats | null }) {
       {/* Refutation Champion (analytics display) */}
       <div className="panel" style={{ padding: '2rem', border: '1px solid var(--border-soft)', boxShadow: 'var(--shadow-glow)' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
-          <span style={{ fontSize: '1.6rem' }}>🏆</span>
+          <div style={{ color: 'var(--gold)', display: 'flex', alignItems: 'center' }}>
+            <BalanceIcon size={24} />
+          </div>
           <div>
             <h3 className="display-title" style={{ fontSize: '1.25rem' }}>The Socratic Champion</h3>
             <p style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginTop: '1px' }}>
@@ -536,7 +538,7 @@ function ConsensusBanner({ txState, onClose }: {
               {phase === 'wallet' && 'Awaiting Wallet Signature…'}
               {phase === 'submitted' && 'Transaction Broadcasted'}
               {phase === 'consensus' && 'Socratic Jury Consensus Running'}
-              {phase === 'confirmed' && '⚡ Dialectic Duel Concluded'}
+              {phase === 'confirmed' && 'Dialectic Duel Concluded'}
               {phase === 'error' && '✕ Adjudication Failed'}
             </span>
           </div>
@@ -812,7 +814,7 @@ function ClashModalDialog({ arena, onClose, onSubmit, busy }: ClashModalProps) {
 
               <div style={{ background: 'var(--terracotta-glow)', border: '1px solid rgba(210,125,45,0.25)', borderRadius: 'var(--radius-md)', padding: '0.85rem' }}>
                 <p style={{ fontSize: '0.78rem', color: 'var(--terracotta)', lineHeight: 1.5 }}>
-                  ⚠️ Validator consensus and web crawling require transaction gas fees. Connect switch to StudioNet network and obtain GEN tokens.
+                  Notice: Validator consensus and web crawling require transaction gas fees. Connect switch to StudioNet network and obtain GEN tokens.
                 </p>
               </div>
             </div>
@@ -906,8 +908,8 @@ export default function HomePage() {
       onConfirmed: async (_, draft) => {
         const verdict = draft?.verdict ?? 'DECIDED';
         const msg = verdict === 'REFUTE'
-          ? '⚡ Success! The incumbent hypothesis was REFUTED. You are the new proponent.'
-          : '🛡 The Socratic Arbiter UPHELD the incumbent hypothesis.';
+          ? 'Success! The incumbent hypothesis was REFUTED. You are the new proponent.'
+          : 'The Socratic Arbiter UPHELD the incumbent hypothesis.';
         pushToast(msg, verdict === 'REFUTE' ? 'success' : 'warning');
         
         // Refresh detail view
@@ -965,9 +967,9 @@ export default function HomePage() {
           {/* Tab Navigation */}
           <div className="tab-container">
             {[
-              ['dialectics', '🏛 Dialectic Sessions', <PillarIcon size={14} key="p"/>],
-              ['ledger', '📜 Socratic Ledger', <ScrollIcon size={14} key="s"/>],
-              ['insights', '📊 Academy Insights', <BalanceIcon size={14} key="b"/>],
+              ['dialectics', 'Dialectic Sessions', <PillarIcon size={14} key="p"/>],
+              ['ledger', 'Socratic Ledger', <ScrollIcon size={14} key="s"/>],
+              ['insights', 'Academy Insights', <BalanceIcon size={14} key="b"/>],
             ].map(([id, label, icon]) => (
               <button
                 key={id as string}
