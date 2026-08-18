@@ -23,6 +23,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
       <body>
+        <div className="bg-image" aria-hidden="true" />
+        <div className="bg-overlay" aria-hidden="true" />
         <div className="grid-bg" aria-hidden="true" />
         <div className="noise-overlay" aria-hidden="true" />
         {children}

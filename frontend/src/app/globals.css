@@ -99,7 +99,7 @@ input, textarea { font-family: inherit; }
 .grid-bg {
   position: fixed;
   inset: 0;
-  z-index: 0;
+  z-index: 1;
   pointer-events: none;
   background-image:
     linear-gradient(rgba(212, 175, 55, 0.02) 1px, transparent 1px),
@@ -107,11 +107,33 @@ input, textarea { font-family: inherit; }
   background-size: 64px 64px;
 }
 
+/* 🖼 Subtly blended background image */
+.bg-image {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: url('/socratic_dragon.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.055;
+  filter: contrast(105%) brightness(95%);
+}
+
+/* 🕶 Radial shadow overlay to create a vignette & keep text readable */
+.bg-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(circle, transparent 30%, rgba(10, 11, 16, 0.8) 85%);
+}
+
 /* 📜 Noise overlay for fine grain textures */
 .noise-overlay {
   position: fixed;
   inset: 0;
-  z-index: 0;
+  z-index: 1;
   pointer-events: none;
   opacity: 0.015;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
