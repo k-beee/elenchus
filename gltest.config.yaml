@@ -1,0 +1,7 @@
+# GenLayer Test Runner Configuration
+network: studionet
+contracts_dir: contracts
+artifacts_dir: artifacts
+env_file: .env
+wait_interval: 3000
+wait_retries: 50
