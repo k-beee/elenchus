@@ -1,0 +1,21 @@
+{
+  "name": "elenchus-academy",
+  "version": "1.0.0",
+  "description": "Elenchus: The Fact-Adjudicated Socratic Duel on GenLayer",
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix frontend run dev",
+    "build": "npm --prefix frontend run build",
+    "start": "npm --prefix frontend run start"
+  },
+  "keywords": [
+    "genlayer",
+    "intelligent-contracts",
+    "blockchain",
+    "dialectics",
+    "socratic-method",
+    "adjudication"
+  ],
+  "author": "k_bee",
+  "license": "MIT"
+}
