@@ -9,6 +9,7 @@ import {
   LedgerEvent,
   proposeThesis,
   Stats,
+  fetchArena,
 } from '@/lib/contract';
 import { useContractData } from '@/hooks/useContractData';
 import { useTransaction } from '@/hooks/useTransaction';
