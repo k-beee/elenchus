@@ -3,7 +3,7 @@ import { studionet } from 'genlayer-js/chains';
 
 // Elenchus contract address — loaded from env or left to be configured by the user
 export const CONTRACT_ADDRESS = (
-  process.env.NEXT_PUBLIC_CONTRACT_ADDRESS || '0xECdb5b02D0195b614e787307E6e712EECBfAf011'
+  process.env.NEXT_PUBLIC_CONTRACT_ADDRESS || '0xe4404A51d6f78Cf05250eD9FBf7197E4385516f4'
 ) as `0x${string}`;
 
 export const EXPLORER = 'https://explorer-studio.genlayer.com';
